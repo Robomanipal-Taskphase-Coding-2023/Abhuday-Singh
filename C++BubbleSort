@@ -1,0 +1,38 @@
+#include <iostream>
+#include "helpers.h"
+using namespace std;
+
+int* sort(int* a, int n) {
+
+	if (n == 1) {
+		return a;
+	}
+
+	bool flag = false;
+	for (int i = 0; i < n - 1; i++) {
+		if (a[i] > a[i + 1]) {
+			int temp = a[i];
+			a[i] = a[i + 1];
+			a[i + 1] = temp;
+			flag = true;
+		}
+	}
+
+	if (!flag) {
+		return a;
+	}
+
+	return sort(a, n - 1);
+}
+
+void bubsort(void) {
+	cout << "Enter length of array (<100)\n";
+	int n;
+	cin >> n;
+	cout << "Enter array elements\n";
+	int* a = intarrinput(n);
+
+	cout << "Sorted array:\n";
+	a = sort(a, n);
+	intarrprint(a, n);
+}
