@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int sumworecur(int num) {
+    int sum = 0;
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
+}
+int sumwrecur(int num) {
+    if (num == 0) {
+        return 0;
+    }
+    return (num % 10) + sumwrecur(num / 10);
+}
+int main() {
+    int num, res1, res2;
+    cout << "Enter a number: ";
+    cin >> num;
+    res1 = sumworecur(num);
+    res2 = sumwrecur(num);
+    cout << "sum of digits (without recursion): " << res1 << endl;
+    cout << "sum of digits ( with recursion): " << res2;
+}
