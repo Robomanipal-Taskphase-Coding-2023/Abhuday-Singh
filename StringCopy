@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+void copy(char * s,char *cp)
+{
+    while(*s!='\0')
+    {
+        *cp=*s;
+        s++;
+        cp++;
+    }
+    *cp='\0';
+}
+int main() 
+{
+    char s[100],cp[100];
+    cout<<"Enter the string: ";
+    cin.getline(s,100);
+    copy(s,cp);
+    cout<<"Copied string: "<<cp<<endl;
+}
