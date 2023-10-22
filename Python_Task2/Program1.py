@@ -1,0 +1,5 @@
+a=float(input("Enter num 1: "))
+b=float(input("Enter num 2: "))
+c=float(input("Enter num 3: "))
+maxnum=maxnum(a,b,c)
+print('The maximum number is: ',max)
