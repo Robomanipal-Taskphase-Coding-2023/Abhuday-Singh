@@ -2,38 +2,40 @@
 #include <vector>
 using namespace std;
 
-void hillnum(void) {
-
-	cout << "Enter number\n";
-	int n;
+int main()
+{
+	int n,d,flag=0,a,b;
+	cout << "Enter the Number to be Checked" <<endl;
 	cin >> n;
-
-	vector<int> a(0);
-	while (n > 0) {
-		a.insert(a.begin(), n % 10);
-		n /= 10;
+	int c=0,dig=0; int x=n;
+    while(x>0)
+	{
+		x =x/10;
+		dig++;
 	}
-
-	int stateswitch = 0;
-	bool asc = true;
-	for (int i = 0; i < a.size() - 1; i++) {
-		int j = i + 1; //gets rid of a weird warning
-		if (a[i] == a[j] || stateswitch > 1) {
-			cout << "not a hillnum\n";
-			exit(0);
+	while(n>0)
+	{
+        d=n%10;
+		n=n/10;
+		if(d<n%10 && flag==0)
+		{
+		c++;
+		b=1;
 		}
-		if ((asc && a[i] > a[j]) || (!asc && a[i] < a[j])) {
-			asc = !asc;
-			stateswitch += 1;
-		}
+		else if (d>n%10)
+		{
+		flag=1;
+		c=c+1;
+		a=1;
 	}
-
-	if (stateswitch == 1) {
-		cout << "hillnumber.\n";
+		
 	}
-	else {
-		cout << "not a hillnumber\n";
+	if (c==dig && a==1 && b==1)
+	cout << "Hill Number" <<endl;
+	else
+	{
+	cout << "Nuh" <<endl;
 	}
-
-	return;
+	
 }
+
